@@ -1,3 +1,15 @@
-body {
+/* body {
     background-color: antiquewhite;
+} */
+
+.input-page {
+    height: 100%;
+    margin: 0;
+}
+
+.login-container, .register-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
