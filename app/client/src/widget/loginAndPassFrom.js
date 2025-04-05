@@ -5,8 +5,6 @@ import { commonEventManager } from '../utils/eventManager';
 
 export default class LoginAndPassFrom {
 
-    _el = {};
-
     constructor(settings = {}) {
         const {
             langId = 'ru',
@@ -30,13 +28,23 @@ export default class LoginAndPassFrom {
     _ui_render = () => {
         const { langId } = this._prop;
 
-        this._el.password = <Input label={t9n(langId, 'PASSWORD')} />;
-
         return (
             <div className='d-flex flex-column'>
-                {this._el.login = <Input label={t9n(langId, 'LOGIN')} />}
-                {this._el.password}
+                <Input this='_el_login' label={t9n(langId, 'LOGIN')} />
+                <Input this='_el_password' label={t9n(langId, 'PASSWORD')} />
             </div>
         )
     }
+	
+	getEmailAddress = () => {
+		const emailInput = this._el_login.getValue();
+		console.log('Email obtained:', emailInput);
+		return emailInput;
+	}
+
+	getPassCode = () => {
+		const Pass = this._el_password.getValue();
+		console.log('Password retrieved:', Pass);
+		return Pass;
+	}
 }

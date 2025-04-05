@@ -11,6 +11,8 @@ class EventManager {
     //     ]
     // }
 
+	// globalLangId = 'ru';
+	
     subscribe = (name, listener) => {
         if (typeof this._eventList[name] === 'undefined') {
             this._eventList[name] = [];

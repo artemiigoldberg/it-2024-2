@@ -13,16 +13,25 @@ export default class Input {
     }
 
     updateLabel = (label) => {
-        // TODO:
-        console.log('input. change lang', label)
-    }
+		const isTextContent = typeof label === 'string';
+		isTextContent 
+			? this._el_label.innerText  = label 
+			: this._el_label = mount(this.container, label, this._el_label, true);
+	}
 
-    _ui_render = () => {
-        const { label } = this._prop;
-        return (
-            <label className="form-label">{label}
-                <input type="text" className="form-control" />
-            </label>
-        )
-    }
+	_ui_render  = () => {
+		const { label: displayText } = this._prop;
+		return (
+			<label className="form-label">
+				<span this='_el_label'>{displayText}</span>
+				<input this='_el_input' type="text" className="form-control" />
+			</label>
+		)
+	}
+
+	getValue  = () => {
+		const inputValue = this._el_input.value;
+		console.log(inputValue);
+		return inputValue;
+	};
 }

@@ -46,17 +46,9 @@ export default class Button {
         );
     }
 
-    // update = (data) => {
-    //     const {
-    //         text = this._prop.text,
-    //         icon = this._prop.icon,
-    //         type = this._prop.type,
-    //         className = this._prop.className
-    //     } = data;
-
-    //     const iconRendered = this._ui_icon(icon);
-
-    //     this._ui_button.innerHTML = `${iconRendered ?? ''}${text}`;
-    //     this._ui_button.className = `btn btn-${type} ${className}`;
-    // }
+	refreshLabel = (newLabel) => {
+		typeof newLabel === 'string' 
+			? this._ui_span.textContent = newLabel 
+			: this._ui_span = mount(this.el, newLabel, this._ui_span, true);
+	}
 }
